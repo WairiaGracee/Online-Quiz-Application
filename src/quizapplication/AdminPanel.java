@@ -9,7 +9,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
-//import java.sql.SQLException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.awt.event.ActionEvent;
@@ -106,31 +106,31 @@ public class AdminPanel extends JFrame {
         JButton btnAddQue = new JButton("Add Question");
         btnAddQue.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-//                try {
-//                    String[] options =  {option1Field.getText(),option2Field.getText(),option3Field.getText(),option4Field.getText()};
-//                    DataBase.addQuestion(queTextArea.getText(),options, answerField.getText());
-//                    JOptionPane.showMessageDialog(btnAddQue,"Question Added Sucessfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-//                } catch (SQLException e1) {
-//                    JOptionPane.showMessageDialog(btnAddQue,"Can't add Question\n"+e1.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-//                    e1.printStackTrace();
-//                }
-//            }
-//        });
+                try {
+                    String[] options =  {option1Field.getText(),option2Field.getText(),option3Field.getText(),option4Field.getText()};
+                    DataBase.addQuestion(queTextArea.getText(),options, answerField.getText());
+                    JOptionPane.showMessageDialog(btnAddQue,"Question Added Sucessfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                } catch (SQLException e1) {
+                    JOptionPane.showMessageDialog(btnAddQue,"Can't add Question\n"+e1.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    e1.printStackTrace();
+                }
+            }
+        });
         buttonsPanel.add(btnAddQue);
         
         JButton btnRemove = new JButton("Remove ");
         btnRemove.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-//                try {
-//                    
-//                    DataBase.delete(remIDfield.getText(), (String)comboBox.getSelectedItem());
-//                    JOptionPane.showMessageDialog(btnAddQue,"Deleted Sucessfully", "Success", JOptionPane.INFORMATION_MESSAGE);
-//                } catch (SQLException e1) {
-//                    JOptionPane.showMessageDialog(btnAddQue,"Delete Question\n"+e1.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-//                    e1.printStackTrace();
-//                }
-//            }
-        }});
+                try {
+                    
+                    DataBase.delete(remIDfield.getText(), (String)comboBox.getSelectedItem());
+                    JOptionPane.showMessageDialog(btnAddQue,"Deleted Sucessfully", "Success", JOptionPane.INFORMATION_MESSAGE);
+                } catch (SQLException e1) {
+                    JOptionPane.showMessageDialog(btnAddQue,"Delete Question\n"+e1.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+                    e1.printStackTrace();
+                }
+            }
+        });
         buttonsPanel.add(btnRemove);
         
         JButton btnViewAllQuestions = new JButton("View All Questions");
@@ -164,35 +164,35 @@ public class AdminPanel extends JFrame {
     protected void showAllQuestions() {
         JFrame frame =  new JFrame();
         frame.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-//        
-//        try {
-//            ArrayList<Question> questions = DataBase.getQuestionAns();
-//            JTextArea qTextArea = new JTextArea();
-//            qTextArea.setLineWrap(true);
-//            qTextArea.setWrapStyleWord(true);
-//            qTextArea.setEditable(false);
-//            JScrollPane scroll = new JScrollPane (qTextArea, 
-//                       JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-//                    frame.add(scroll);
-//            for (Iterator iterator = questions.iterator(); iterator.hasNext();) {
-//                Question question = (Question) iterator.next();
-//                qTextArea.append("\nQ."+question.getQuestion()+"\n"+
-//                                "1."+question.getOp1()+"\n"+
-//                                "2."+question.getOp2()+"\n"+
-//                                "3."+question.getOp3()+"\n"+
-//                                "4."+question.getOp4()+"\n"+
-//                                "Ans."+question.getAns()+"\n"+
-//                                "---------------------------------------------"
-//                        );
-//                
-//            }
-//            frame.setSize(300, 300);
-//            frame.setTitle("Question List");
-//            frame.setVisible(true);      
-//        } catch (SQLException e) {
-//            // TODO Auto-generated catch block
-//            e.printStackTrace();
-//        }
+        
+        try {
+            ArrayList<Question> questions = DataBase.getQuestionAns();
+            JTextArea qTextArea = new JTextArea();
+            qTextArea.setLineWrap(true);
+            qTextArea.setWrapStyleWord(true);
+            qTextArea.setEditable(false);
+            JScrollPane scroll = new JScrollPane (qTextArea, 
+                       JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+                    frame.add(scroll);
+            for (Iterator iterator = questions.iterator(); iterator.hasNext();) {
+                Question question = (Question) iterator.next();
+                qTextArea.append("\nQ."+question.getQuestion()+"\n"+
+                                "1."+question.getOp1()+"\n"+
+                                "2."+question.getOp2()+"\n"+
+                                "3."+question.getOp3()+"\n"+
+                                "4."+question.getOp4()+"\n"+
+                                "Ans."+question.getAns()+"\n"+
+                                "---------------------------------------------"
+                        );
+                
+            }
+            frame.setSize(300, 300);
+            frame.setTitle("Question List");
+            frame.setVisible(true);      
+        } catch (SQLException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         
         
     }

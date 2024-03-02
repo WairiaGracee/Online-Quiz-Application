@@ -16,6 +16,8 @@ import java.util.ArrayList;
 import org.sqlite.SQLiteDataSource;
 
 public class DataBase extends JFrame {
+	public DataBase() {
+	}
 //  declaring connection and dataSource variables
     private static Connection conn;
     private static SQLiteDataSource ds;
